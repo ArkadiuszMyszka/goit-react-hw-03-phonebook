@@ -11,6 +11,19 @@ export class App extends Component {
     contacts: [],
     filter: '',
   };
+  componentDidUpdate() {
+    localStorage.setItem(
+      'contactsStorage',
+      JSON.stringify(this.state.contacts)
+    );
+  }
+  componentDidMount() {
+    const storedContacts = localStorage.getItem('contactsStorage');
+    console.log(storedContacts);
+    this.setState({
+      contacts: JSON.parse(storedContacts),
+    });
+  }
   findContacts = () => {
     const { filter, contacts } = this.state;
     return contacts.filter(contact =>

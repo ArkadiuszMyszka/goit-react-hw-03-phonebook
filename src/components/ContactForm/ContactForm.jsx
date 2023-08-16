@@ -22,6 +22,8 @@ export class ContactForm extends Component {
     });
   };
 
+  
+
   render() {
     const { name, number } = this.state;
     return (
